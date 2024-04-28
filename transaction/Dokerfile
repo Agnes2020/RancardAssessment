@@ -1,0 +1,14 @@
+# Use a base image with Java 11
+FROM openjdk:11-jdk
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the JAR file into the container
+COPY target/*.jar app.jar
+
+# Expose the port your Spring Boot application is running on (e.g., 8080)
+EXPOSE 8080
+
+# Run the Spring Boot application
+ENTRYPOINT ["java", "-jar", "app.jar"]
